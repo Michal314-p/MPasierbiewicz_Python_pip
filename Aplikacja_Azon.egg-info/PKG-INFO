@@ -1,0 +1,11 @@
+Metadata-Version: 1.2
+Name: Aplikacja-Azon
+Version: 0.2
+Summary: Aplikacja do używania AZONu
+Home-page: https://github.com/Michal314-p/MPasierbiewicz_Python_pip.git
+Author: Michał Pasierbiewicz
+Author-email: 226001@student.pwr.edu.pl
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6

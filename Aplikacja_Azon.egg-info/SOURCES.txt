@@ -1,0 +1,10 @@
+README.md
+setup.py
+Aplikacja_Azon.egg-info/PKG-INFO
+Aplikacja_Azon.egg-info/SOURCES.txt
+Aplikacja_Azon.egg-info/dependency_links.txt
+Aplikacja_Azon.egg-info/not-zip-safe
+Aplikacja_Azon.egg-info/top_level.txt
+azon/__init__.py
+azon/osoba.py
+azon/zawolania_azon.py
