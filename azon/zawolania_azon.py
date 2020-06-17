@@ -2,6 +2,7 @@ import json
 import urllib.parse
 import urllib.request
 from .osoba import Osoba
+from .zasoby import Zasoby
 
 
 class Zawolania_azon:
@@ -16,25 +17,35 @@ class Zawolania_azon:
         dane = urllib.parse.urlencode(wartosci, False, '', 'utf-8')
         url += '?' + dane
         f = urllib.request.urlopen(url)
-        req_rs = json.loads(f.read().decode('utf-8'))
-        return req_rs
+        wynik = json.loads(f.read().decode('utf-8'))
+        return wynik
 
-    def find_person(self, name,):
+    def znajdz_osobe(self, imie_nazwisko):
 
         url = 'https://api.e-science.pl/api/azon/persons/'
-        values = {'search': name,
-                  'api_key': self.token,
-                  'limit': 1000,
-                  'offset': 1}
-        data = urllib.parse.urlencode(values, False, '', 'utf-8')
-        url += '?' + data
+        wartosci = {'search': imie_nazwisko,'api_key': self.token,'limit': 1000,'offset': 1}
+        dane = urllib.parse.urlencode(wartosci, False, '', 'utf-8')
+        url += '?' + dane
         req = urllib.request.urlopen(url)
-        req_rs = json.loads(req.read().decode('utf-8'))
-        persons = {}
-        for p in req_rs['results']:
-            persons[p['id']] = Osoba(p['id'], p['first_name'], p['last_name'])
-        return persons
+        zapytanie = json.loads(req.read().decode('utf-8'))
+        osoby = {}
+        for p in zapytanie['results']:
+            osoby[p['id']] = Osoba(p['id'], p['first_name'], p['last_name'])
+        return osoby
 
+    def znajdz_zasoby(self, id_osoby):
+
+        url = 'https://api.e-science.pl/api/azon/authors/entries/' + \
+              id_osoby.__str__() + '/'
+        wartosci = {'api_key': self.token,'limit': 1000,'offset': 1}
+        dane = urllib.parse.urlencode(wartosci, False, '', 'utf-8')
+        url += '?' + dane
+        f = urllib.request.urlopen(url)
+        zapytanie = json.loads(f.read().decode('utf-8'))
+        zasoby = {}
+        for r in zapytanie['results']:
+            zasoby[r['pk']] = Zasoby(r['pk'], r['title'],[a['pk'] for a in r['authors']],'', r['entry_type_id'])
+        return zasoby
 
 
 
