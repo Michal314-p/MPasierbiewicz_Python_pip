@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="Aplikacja Azon",
-    version="0.2",
+    version="0.3",
     author="Michał Pasierbiewicz",
     author_email="226001@student.pwr.edu.pl",
     description="Aplikacja do używania AZONu",
