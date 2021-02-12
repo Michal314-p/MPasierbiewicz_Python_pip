@@ -1,12 +1,6 @@
-1. Samoocena 3.5
-2. Wykonane zadania:
-- Zrobienie kilka wersji aplikacji i zapakowanie wraz z opisem  
-- Przetestowanie aplikacji  
-- Pobranie paczek z innej aplikacji
-3. Niewykonane
-- Generowanie metadanych w formacie bibtex
+Aplikacja wykorzyrzystująca python pip. Pozwala na wyszukiwanie osób w wykonanej bazie.  
 
-4. Opis wersji:  
+Opis wersji:  
 
 Wersja 0.1:  
 - Wyszukiwanie osób/osoby po imieniu lub nazwisku  
